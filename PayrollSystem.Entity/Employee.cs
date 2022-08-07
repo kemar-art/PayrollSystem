@@ -28,7 +28,7 @@ namespace PayrollSystem.Entity
         public DateTime DOB { get; set; }
         public DateTime DateJoined { get; set; }
         public DateTime DateTerminated { get; set; }
-        public string? Desination { get; set; }
+        public string? Designation { get; set; }
         [Required]
         public string? Email { get; set; }
         [Required]
