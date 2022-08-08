@@ -21,6 +21,8 @@ namespace PayrollSystem.Entity
         [Required]
         public string? Address { get; set; }
         public string? Parish { get; set; }
+        [Required, Display(Name = "Contact Number")]
+        public string? PhoneNumber { get; set; }
         [Required, MaxLength(50)]
         public string? Gender { get; set; }
         public string? ImageUrl { get; set; }
