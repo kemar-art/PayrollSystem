@@ -161,5 +161,63 @@ namespace PayrollSystem.Controllers
             }
             return View(model);
         }
+
+        [HttpGet]
+        [ValidateAntiForgeryToken]
+        public IActionResult Detail(int id)
+        {
+            var employee = employeeService.GetById(id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            EmployeeDetailViewModel model = new EmployeeDetailViewModel()
+            {
+                Id = employee.Id,
+                EmployeeNo = employee.EmployeeNo,
+                FullName = employee.FullName,
+                Gender = employee.Gender,
+                Email = employee.Email,
+                DOB = employee.DOB,
+                PhoneNumber = employee.PhoneNumber,
+                DateJoined = employee.DateJoined,
+                NationalInsuranceScheme = employee.NationalInsuranceScheme,
+                TaxRegistrationNumber = employee.TaxRegistrationNumber,
+                PaymentMethod = employee.PaymentMethod,
+                Loan = employee.Loan,
+                UnionMember = employee.UnionMember,
+                Address = employee.Address,
+                Parish = employee.Parish,
+                Designation = employee.Designation,
+                DateTerminated = employee.DateTerminated,
+                ImageUrl = employee.ImageUrl,
+            };
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var emopployee = employeeService.GetById(id);
+            if (emopployee == null)
+            {
+                return NotFound();
+            }
+            var model = new EmployeeDeleteViewModel()
+            {
+                Id = emopployee.Id,
+                FullName = emopployee.FullName,
+                Email = emopployee.Email,
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(EmployeeDeleteViewModel model)
+        {
+            await employeeService.DeleteAsync(model.Id);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
