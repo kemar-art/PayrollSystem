@@ -5,11 +5,16 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PayrollSystem", "PayrollSystem.csproj", "{4DDAF94A-A7AB-4952-9D2A-1E31300656DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollSystem.Entity", "..\PayrollSystem.Entity\PayrollSystem.Entity.csproj", "{5A77F60B-B5F7-4A3C-BC6B-EA0227F4A19D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PayrollSystem.Entity", "..\PayrollSystem.Entity\PayrollSystem.Entity.csproj", "{5A77F60B-B5F7-4A3C-BC6B-EA0227F4A19D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollSystem.Services", "..\PayrollSystem.Services\PayrollSystem.Services.csproj", "{57244395-35CA-41D5-912D-2354A91B36C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PayrollSystem.Services", "..\PayrollSystem.Services\PayrollSystem.Services.csproj", "{57244395-35CA-41D5-912D-2354A91B36C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollSystem.Persistence", "..\PayrollSystem.Persistence\PayrollSystem.Persistence.csproj", "{8BCA1268-6ECC-42DE-9C7A-A811AB73E325}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PayrollSystem.Persistence", "..\PayrollSystem.Persistence\PayrollSystem.Persistence.csproj", "{8BCA1268-6ECC-42DE-9C7A-A811AB73E325}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6140B834-BD36-4BC1-AA40-1D3935613789}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

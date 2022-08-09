@@ -24,7 +24,6 @@ namespace PayrollSystem.Services.Implementations
 
         public Employee GetById(int employeeId) => context.Employees.Where(e => e.Id == employeeId).FirstOrDefault();
 
-
         public async Task DeleteAsync(int employeeId)
         {
             var employee = GetById(employeeId);
