@@ -6,17 +6,16 @@ using PayrollSystem.Services;
 
 namespace PayrollSystem.Controllers
 {
-    public class Employeeontroller : Controller
+    public class EmployeeController : Controller
     {
         private readonly IEmloyeeService employeeService;
-        private readonly HostingEnvironment hostingEnvironment;
+        private readonly IWebHostEnvironment hostingEnvironment;
 
-        public Employeeontroller(IEmloyeeService employeeService, HostingEnvironment hostingEnvironment)
+        public EmployeeController(IEmloyeeService employeeService, IWebHostEnvironment hostingEnvironment)
         {
             this.employeeService = employeeService;
             this.hostingEnvironment = hostingEnvironment;
         }
-
         public IActionResult Index()
         {
             var employees = employeeService.GetAll().Select(employee => new EmployeeIndexViewModel
@@ -67,7 +66,7 @@ namespace PayrollSystem.Controllers
                     Parish = model.Parish,
                     Designation = model.Designation,
                 };
-                if (model.ImageUrl != null  && model.ImageUrl.Length > 0)
+                if (model.ImageUrl != null && model.ImageUrl.Length > 0)
                 {
                     var uploadDir = @"images/employees";
                     var fileNmae = Path.GetFileNameWithoutExtension(model.ImageUrl.FileName);
