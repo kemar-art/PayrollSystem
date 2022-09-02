@@ -25,7 +25,7 @@
                                     <th>Name</th>
                                     <th>Gender</th>
                                     <th>Designation</th>
-                                    <th>Parish</th>
+                                    <th>Address</th>
                                     <th>Start Date</th>
                                     <th class="text-warning">Actions</th>
                                 </tr>
@@ -43,15 +43,15 @@
                                         <td>@item.FullName</td>
                                         <td>@item.Gender</td>
                                         <td>@item.Designation</td>
-                                        <td>@item.Parish</td>
-                                        <td>@item.DateJoined</td>
+                                        <td>@item.Address</td>
+                                        <td>@item.DateJoined.ToString("dd/MM/yyyy")</td>
                                         <td>
-                                            <a class="text-primary" asp-action="Edit" asp-route-id="@item.Id">
+                                            <a class="text-primary" asp-action="Edit" asp-route-id="@item.Id"> 
                                                 <i class="fa-solid fa-pen-to-square"></i>Edit
-                                            </a>
+                                            </a> &nbsp;
                                             <a class="text-success" asp-action="Detail" asp-route-id="@item.Id">
                                                 <i class="fa-solid fa-circle-info"></i>Detail
-                                            </a>
+                                            </a> &nbsp;
                                             <a class="text-danger" asp-action="Delete" asp-route-id="@item.Id">
                                                 <i class="fa-solid fa-trash-can"></i>Delete
                                             </a>

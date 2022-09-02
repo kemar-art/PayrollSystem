@@ -1,8 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Hosting.Internal;
+using Microsoft.AspNetCore.Hosting.Internal;
 using PayrollSystem.Entity;
 using PayrollSystem.Models;
 using PayrollSystem.Services;
+
+
+
+
 
 namespace PayrollSystem.Controllers
 {
@@ -26,7 +30,7 @@ namespace PayrollSystem.Controllers
                 FullName = employee.FullName,
                 Gender = employee.Gender,
                 Designation = employee.Designation,
-                Parish = employee.Parish,
+                Address = employee.Address,
                 DateJoined = employee.DateJoined,
             }).ToList();
             return View(employees);
@@ -40,7 +44,7 @@ namespace PayrollSystem.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(EmployeeCreateViewModel model)
+        public async Task<IActionResult> Create(EmployeeCreateViewModel model, IFormFile ImageUrl)
         {
             if (ModelState.IsValid)
             {
@@ -66,15 +70,15 @@ namespace PayrollSystem.Controllers
                     Parish = model.Parish,
                     Designation = model.Designation,
                 };
-                if (model.ImageUrl != null && model.ImageUrl.Length > 0)
+                if (ImageUrl != null && ImageUrl.Length > 0)
                 {
-                    var uploadDir = @"images/employees";
-                    var fileNmae = Path.GetFileNameWithoutExtension(model.ImageUrl.FileName);
-                    var extension = Path.GetExtension(model.ImageUrl.FileName);
+                    var uploadDir = @"C:/Users/Kemar/Desktop/All Projects/Active Progect/PayrollSestem/PayrollSystem/wwwroot/images/employees";
+                    var fileNmae = Path.GetFileNameWithoutExtension(ImageUrl.FileName);
+                    var extension = Path.GetExtension(ImageUrl.FileName);
                     var webRootPath = hostingEnvironment.ContentRootPath;
                     var fileName = DateTime.Now.ToString("yymmssfff") + fileNmae + extension;
                     var path = Path.Combine(webRootPath, uploadDir, fileNmae);
-                    await model.ImageUrl.CopyToAsync(new FileStream(path, FileMode.Create));
+                    await ImageUrl.CopyToAsync(new FileStream(path, FileMode.Create));
                     employee.ImageUrl = "/" + uploadDir + "/" + fileName;
                 }
                 await employeeService.CreateAsync(employee);
@@ -145,7 +149,7 @@ namespace PayrollSystem.Controllers
                 employee.Designation = employee.Designation;
                 if (model.ImageUrl != null && model.ImageUrl.Length > 0)
                 {
-                    var uploadDir = @"images/employees";
+                    var uploadDir = @"C:/Users/Kemar/Desktop/All Projects/Active Progect/PayrollSestem/PayrollSystem/wwwroot/images/employees";
                     var fileNmae = Path.GetFileNameWithoutExtension(model.ImageUrl.FileName);
                     var extension = Path.GetExtension(model.ImageUrl.FileName);
                     var webRootPath = hostingEnvironment.ContentRootPath;

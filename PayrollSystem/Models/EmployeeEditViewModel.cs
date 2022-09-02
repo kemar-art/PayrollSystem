@@ -6,7 +6,7 @@ namespace PayrollSystem.Models
     public class EmployeeEditViewModel
     {
         public int Id { get; set; }
-        [Required(ErrorMessage = "Emloyee Number is required"), RegularExpression(@"^[A-Z]{3,3}[0-9]{0}$")]
+        [Required(ErrorMessage = "Emloyee Number is required"), RegularExpression(@"^[A-Z]{3,3}[0-9]{7,7}$")]
         public string? EmployeeNo { get; set; }
         [Required(ErrorMessage = "First Name is required"), Display(Name = "First Name"), MaxLength(50)]
         public string? FirstName { get; set; }
@@ -23,7 +23,7 @@ namespace PayrollSystem.Models
         [Required, MaxLength(50)]
         public string? Gender { get; set; }
         [Display(Name = "Photo")]
-        public IFormFile ImageUrl { get; set; }
+        public IFormFile? ImageUrl { get; set; }
         [DataType(DataType.Date), Display(Name = ("D.O.B"))]
         public DateTime DOB { get; set; }
         [DataType(DataType.Date), Display(Name = ("Start Date"))]

@@ -10,7 +10,7 @@ namespace PayrollSystem.Entity
     public class Employee
     {
         public int Id { get; set; }
-        [Required]
+       
         public string? EmployeeNo { get; set; }
         [Required, MaxLength(50)]
         public string? FirstName { get; set; }
@@ -23,9 +23,11 @@ namespace PayrollSystem.Entity
         public string? Parish { get; set; }
         [Required, Display(Name = "Contact Number")]
         public string? PhoneNumber { get; set; }
-        [Required, MaxLength(50)]
+        [Required]
         public string? Gender { get; set; }
+
         public string? ImageUrl { get; set; }
+
         [Required]
         public DateTime DOB { get; set; }
         public DateTime DateJoined { get; set; }
