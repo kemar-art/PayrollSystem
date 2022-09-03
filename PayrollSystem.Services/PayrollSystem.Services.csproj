@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\PayrollSystem.Entity\PayrollSystem.Entity.csproj" />
     <ProjectReference Include="..\PayrollSystem.Persistence\PayrollSystem.Persistence.csproj" />
   </ItemGroup>

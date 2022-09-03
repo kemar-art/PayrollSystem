@@ -12,14 +12,14 @@ using PayrollSystem.Persistence;
 namespace PayrollSystem.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220807232912_addphonenumber")]
-    partial class addphonenumber
+    [Migration("20220903181836_MyMigration")]
+    partial class MyMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.7")
+                .HasAnnotation("ProductVersion", "6.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -255,7 +255,6 @@ namespace PayrollSystem.Persistence.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EmployeeNo")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
@@ -268,10 +267,10 @@ namespace PayrollSystem.Persistence.Migrations
 
                     b.Property<string>("Gender")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
@@ -351,6 +350,12 @@ namespace PayrollSystem.Persistence.Migrations
 
                     b.Property<string>("FullName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("HolidayEarning")
+                        .HasColumnType("money");
+
+                    b.Property<decimal>("HolidayHours")
+                        .HasColumnType("decimal (18,2)");
 
                     b.Property<decimal>("HourlyRate")
                         .HasColumnType("money");

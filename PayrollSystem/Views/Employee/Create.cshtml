@@ -14,6 +14,23 @@
                 </nav><br /><br />
                 <form method="post" enctype="multipart/form-data" asp-action="Create">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="form-group col-md-2">
+                        <label asp-for="EmployeeNo"></label>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <input asp-for="EmployeeNo" class="form-control" placeholder="EMP0000000" />
+                        <span asp-validation-for="EmployeeNo" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="form-group col-md-2">
+                        <label asp-for="DateJoined"></label>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <input asp-for="DateJoined" class="form-control" placeholder="" />
+                        <span asp-validation-for="DateJoined" class="text-danger"></span>
+                    </div>
+                </div>
                     <div class="row">
                         <div class="form-group col-md-2">
                             <label asp-for="FirstName"></label>
@@ -32,23 +49,6 @@
                         <div class="form-group col-md-3">
                             <input asp-for="LastName" class="form-control" placeholder="Last Name" />
                             <span asp-validation-for="LastName" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-md-2">
-                            <label asp-for="EmployeeNo"></label>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <input asp-for="EmployeeNo" class="form-control" placeholder="EMP0000000"/>
-                            <span asp-validation-for="EmployeeNo" class="text-danger"></span>
-                        </div>
-                        <div class="col-md-2"></div>
-                        <div class="form-group col-md-2">
-                            <label asp-for="DateJoined"></label>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <input asp-for="DateJoined" class="form-control" placeholder="" />
-                            <span asp-validation-for="DateJoined" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="row">

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PayrollSystem.Persistence.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class MyMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -54,19 +54,20 @@ namespace PayrollSystem.Persistence.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    EmployeeNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EmployeeNo = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     MiddleName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Parish = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Gender = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DOB = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateJoined = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateTerminated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Desination = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Designation = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TaxRegistrationNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NationalInsuranceScheme = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -110,7 +111,7 @@ namespace PayrollSystem.Persistence.Migrations
                         column: x => x.RoleId,
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -131,7 +132,7 @@ namespace PayrollSystem.Persistence.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -151,7 +152,7 @@ namespace PayrollSystem.Persistence.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -169,13 +170,13 @@ namespace PayrollSystem.Persistence.Migrations
                         column: x => x.RoleId,
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -195,7 +196,7 @@ namespace PayrollSystem.Persistence.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -214,7 +215,9 @@ namespace PayrollSystem.Persistence.Migrations
                     HoursWorked = table.Column<decimal>(type: "decimal (18,2)", nullable: false),
                     ContractualHours = table.Column<decimal>(type: "decimal (18,2)", nullable: false),
                     OvertimeHours = table.Column<decimal>(type: "decimal (18,2)", nullable: false),
+                    HolidayHours = table.Column<decimal>(type: "decimal (18,2)", nullable: false),
                     ContractualEarnings = table.Column<decimal>(type: "money", nullable: false),
+                    HolidayEarning = table.Column<decimal>(type: "money", nullable: false),
                     OvertimeEarnings = table.Column<decimal>(type: "money", nullable: false),
                     NISTax = table.Column<decimal>(type: "money", nullable: false),
                     NHTTax = table.Column<decimal>(type: "money", nullable: false),
@@ -240,13 +243,13 @@ namespace PayrollSystem.Persistence.Migrations
                         column: x => x.EmployeeId,
                         principalTable: "Employees",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_PaymentRecords_TaxYears_TaxYearId",
                         column: x => x.TaxYearId,
                         principalTable: "TaxYears",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

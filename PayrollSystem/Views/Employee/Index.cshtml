@@ -50,13 +50,13 @@
                                         <td>@item.DateJoined.ToString("dd/MM/yyyy")</td>
                                         <td>@item.DateTerminated.ToString("dd/MM/yyyy")</td>
                                         <td>
-                                            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">
+                                            <a class="btn btn-primary btn-rounded" asp-action="Edit" asp-route-id="@item.Id">
                                                 <i class="fa-solid fa-pen-to-square"></i> Edit
                                             </a> &nbsp;
-                                            <a class="btn btn-info" asp-action="Detail" asp-route-id="@item.Id">
+                                            <a class="btn btn-info btn-rounded" asp-action="Detail" asp-route-id="@item.Id">
                                                 <i class="fa-solid fa-circle-info"></i> Detail
                                             </a> &nbsp;
-                                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">
+                                            <a class="btn btn-danger btn-rounded" asp-action="Delete" asp-route-id="@item.Id">
                                                 <i class="fa-solid fa-trash-can"></i> Delete
                                             </a>
                                         </td>

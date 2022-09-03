@@ -32,8 +32,12 @@ namespace PayrollSystem.Entity
         public decimal ContractualHours { get; set; }
         [Column(TypeName = "decimal (18, 2)")]
         public decimal OvertimeHours { get; set; }
+        [Column(TypeName = "decimal (18, 2)")]
+        public decimal HolidayHours { get; set; }
         [Column(TypeName = "money")]
         public decimal ContractualEarnings { get; set; }
+        [Column(TypeName = "money")]
+        public decimal HolidayEarning { get; set; }
         [Column(TypeName = "money")]
         public decimal OvertimeEarnings { get; set; }
         [Column(TypeName = "money")]
