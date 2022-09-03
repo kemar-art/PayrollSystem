@@ -35,7 +35,7 @@ namespace PayrollSystem.Services.Implementations
 
         public async Task UpdateAsync(Employee employee)
         {
-            context.Update(employee);
+            context.Employees.Update(employee);
             await context.SaveChangesAsync();
         }
 

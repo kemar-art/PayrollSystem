@@ -16,7 +16,7 @@
                 </nav><br /><br />
                 <div class="row">
                     <div class="col-md-12 table-responsive-md">
-                        <a class="btn btn-xl btn-outline-success float-md-start" asp-action="Create">Add Employee</a>
+                        @*<a class="btn btn-xl btn-outline-success float-md-start" asp-action="Create">Add Employee</a>*@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -27,6 +27,7 @@
                                     <th>Designation</th>
                                     <th>Address</th>
                                     <th>Start Date</th>
+                                    <th>Attrition Date</th>
                                     <th class="text-warning">Actions</th>
                                 </tr>
                             </thead>
@@ -35,25 +36,28 @@
                                 {
                                     <tr>
                                         <td>
-                                            <a asp-action="Details" asp-route-id="@item.Id">
+                                            <a asp-action="Detail" asp-route-id="@item.Id">
                                                 @item.EmployeeNo
                                             </a>
                                         </td>
-                                        <td><img alt="image" src="@Url.Content(item.ImageUrl)" /></td>
+                                        <td>
+                                            <img src="@Url.Content(item.ImageUrl)" class="rounded-circle" style="width:30px;height:30px;" alt="image" />
+                                        </td>
                                         <td>@item.FullName</td>
                                         <td>@item.Gender</td>
                                         <td>@item.Designation</td>
                                         <td>@item.Address</td>
                                         <td>@item.DateJoined.ToString("dd/MM/yyyy")</td>
+                                        <td>@item.DateTerminated.ToString("dd/MM/yyyy")</td>
                                         <td>
-                                            <a class="text-primary" asp-action="Edit" asp-route-id="@item.Id"> 
-                                                <i class="fa-solid fa-pen-to-square"></i>Edit
+                                            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">
+                                                <i class="fa-solid fa-pen-to-square"></i> Edit
                                             </a> &nbsp;
-                                            <a class="text-success" asp-action="Detail" asp-route-id="@item.Id">
-                                                <i class="fa-solid fa-circle-info"></i>Detail
+                                            <a class="btn btn-info" asp-action="Detail" asp-route-id="@item.Id">
+                                                <i class="fa-solid fa-circle-info"></i> Detail
                                             </a> &nbsp;
-                                            <a class="text-danger" asp-action="Delete" asp-route-id="@item.Id">
-                                                <i class="fa-solid fa-trash-can"></i>Delete
+                                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">
+                                                <i class="fa-solid fa-trash-can"></i> Delete
                                             </a>
                                         </td>
                                     </tr>

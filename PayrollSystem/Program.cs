@@ -1,10 +1,14 @@
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PayrollSystem.Persistence;
 using PayrollSystem.Services;
 using PayrollSystem.Services.Implementations;
+using Microsoft.Extensions.DependencyInjection;
+using PayrollSystem.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<PayrollSystemContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("PayrollSystemContext") ?? throw new InvalidOperationException("Connection string 'PayrollSystemContext' not found.")));
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");

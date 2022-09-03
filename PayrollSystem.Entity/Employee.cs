@@ -26,7 +26,7 @@ namespace PayrollSystem.Entity
         [Required]
         public string? Gender { get; set; }
 
-        public string? ImageUrl { get; set; }
+        public string ImageUrl { get; set; }
 
         [Required]
         public DateTime DOB { get; set; }
